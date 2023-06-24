@@ -4,7 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import routes from "./routes";
 
-// import connection from "./config/connection";
+import connection from "./config/connection";
 
 dotenv.config();
 
@@ -18,7 +18,7 @@ app.use(routes);
 
 const start = async (): Promise<void> => {
   try {
-    // await connection.sync();
+    await connection.sync();
     app.listen(port, () => {
       console.log(`Server started on ${process.env.HOST} ${port}`);
     });
